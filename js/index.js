@@ -66,7 +66,7 @@ $(function() {
 					dataType: "jsonp",
 					success: function(data) {
 						arr = data.data.data;
-						if(arr.length <= 10) {
+						if(arr.length <= 20) {
 							for(var i = 0; i < arr.length; i++) {
 								str += "<li><div class='uesrname'><img src='" + arr[i].group.user.avatar_url + "'></img><span>" + arr[i].group.user.name + "</span></div>";
 								str += "<div class='text'><p>" + arr[i].group.text + "</p></div>";
