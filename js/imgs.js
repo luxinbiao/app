@@ -69,10 +69,10 @@ $(function(){
 							}
 							$(".load").remove();
 							$(".listimg").html(str);
+							flag=false;
 						}
 					}
 				})
-				flag=false;
 			}
 		})
 	}
