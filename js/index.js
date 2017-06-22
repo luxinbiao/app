@@ -58,7 +58,7 @@ $(function() {
 					flag = true;
 				}
 			}
-			if(dir<0){
+			if(dir<0 && st>50){
 				$(".nav").stop().animate({"top":"0px"},300);
 			}
 			else{
@@ -140,7 +140,7 @@ $(function() {
 					flag = true;
 				}
 			}
-			if(dir<0){
+			if(dir<0 && st>50){
 				$(".nav").stop().animate({"top":"0px"},300);
 			}
 			else{
@@ -224,7 +224,7 @@ $(function() {
 					flag = true;
 				}
 			}
-			if(dir<0){
+			if(dir<0 && st>50){
 				$(".nav").stop().animate({"top":"0px"},300);
 			}
 			else{
