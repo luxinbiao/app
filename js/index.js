@@ -9,6 +9,7 @@
 document.documentElement.style.fontSize = innerWidth / 16 + "px";
 $(function() {
 	function gettext(){
+		$(".list ul").html("");
 		var flag=false;
 		if($(".listtxt").html()==""){
 			if(!flag){
@@ -52,7 +53,7 @@ $(function() {
 			dir = ev.touches[0].pageY - sy;
 //			console.log(st, listh, ulsh);
 			if(dir < -200 && ulsh <= (st + listh)) {
-				if(!flag && $(".load").length<0){
+				if(!flag && $(".listtxt li").length>5){
 					divr = "<div class='load'><span></span></div>";
 					$(".list").append(divr);
 					flag = true;
@@ -90,8 +91,9 @@ $(function() {
 		})
 	}
 	function getvideo() {
+		$(".list ul").html("");
 		var flag=false;
-		if($(".listtxt").html()==""){
+		if($(".list ul").html()==""){
 			if(!flag){
 				divr = "<div class='load'><span></span></div>";
 				$(".list").prepend(divr);
@@ -116,7 +118,7 @@ $(function() {
 					str += "<div class='pinlun'><span></span><i>" + 5 * (i + 1) + "</i></div><div class='zhuanzai'><span></span><i>" + 10 * (i + 1) + "</i></div></div></li>";
 				}
 				$(".load").remove();
-				$(".listtxt").html(str);
+				$(".listvideo").html(str);
 				flag=false;
 			}
 		})
@@ -134,7 +136,7 @@ $(function() {
 			dir = ev.touches[0].pageY - sy;
 //			console.log(st, listh, ulsh);
 			if(dir < -200 && ulsh <= (st + listh)) {
-				if(!flag && $(".load").length<0) {
+				if(!flag && $(".listvideo li").length>5) {
 					divr = "<div class='load'><span></span></div>";
 					$(".list").append(divr);
 					flag = true;
@@ -164,7 +166,7 @@ $(function() {
 					str += "<div class='pinlun'><span></span><i>" + 5 * (i + 1) + "</i></div><div class='zhuanzai'><span></span><i>" + 10 * (i + 1) + "</i></div></div></li>";
 							}
 							$(".load").remove();
-							$(".listtxt").html(str);
+							$(".listvideo").html(str);
 							flag=false;
 						}
 					}
@@ -174,8 +176,9 @@ $(function() {
 		
 	}
 	function getimg(){
+		$(".list ul").html("");
 		var flag=false;
-		if($(".listtxt").html()==""){
+		if($(".list ul").html()==""){
 			if(!flag){
 				divr = "<div class='load'><span></span></div>";
 				$(".list").prepend(divr);
@@ -200,7 +203,7 @@ $(function() {
 								str += "<div class='pinlun'><span></span><i>" + 5 * (i + 1) + "</i></div><div class='zhuanzai'><span></span><i>" + 10 * (i + 1) + "</i></div></div></li>";
 				}
 				$(".load").remove();
-				$(".listtxt").html(str);
+				$(".listimg").html(str);
 				flag=false;
 			}
 		})
@@ -218,7 +221,7 @@ $(function() {
 			dir = ev.touches[0].pageY - sy;
 //			console.log(st, listh, ulsh);
 			if(dir < -200 && ulsh <= (st + listh)) {
-				if(!flag && $(".load").length<0) {
+				if(!flag && $(".listimg li").length>5) {
 					divr1 = "<div class='load'><span></span></div>";
 					$(".list").append(divr1);
 					flag = true;
@@ -248,7 +251,7 @@ $(function() {
 								str += "<div class='pinlun'><span></span><i>" + 5 * (i + 1) + "</i></div><div class='zhuanzai'><span></span><i>" + 10 * (i + 1) + "</i></div></div></li>";
 							}
 							$(".load").remove();
-							$(".listtxt").html(str);
+							$(".listimg").html(str);
 							flag=false;
 						}
 					}
@@ -276,18 +279,27 @@ $(function() {
 	gettext();
 	
 	$(".abtn").on("tap",function(){
+		$(".list ul").html("");
 		$(this).addClass("bac").siblings().removeClass("bac");
-		$(".listtxt").html("");
 		$(".load").remove();
 		var index=$(this).index();
 		if(index==0){
+			$(".list ul").removeClass("listimg");
+			$(".list ul").removeClass("listvideo");
+			$(".list ul").addClass("listtxt");
 			gettext();
 		}
 		else if(index==1){
-			getimg()
+			$(".list ul").removeClass("listtxt");
+			$(".list ul").removeClass("listvideo");
+			$(".list ul").addClass("listimg");
+			getimg();
 		}
 		else if(index==2){
-			getvideo()
+			$(".list ul").removeClass("listtxt");
+			$(".list ul").removeClass("listimg");
+			$(".list ul").addClass("listvideo");
+			getvideo();
 		}
 	})
 })
